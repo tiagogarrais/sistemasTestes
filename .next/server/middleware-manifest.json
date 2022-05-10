@@ -1,0 +1,49 @@
+{
+  "sortedMiddleware": [
+    "/admin",
+    "/me"
+  ],
+  "clientInfo": [
+    [
+      "/admin",
+      false
+    ],
+    [
+      "/me",
+      false
+    ]
+  ],
+  "middleware": {
+    "/admin": {
+      "env": [
+        "NEXTAUTH_URL",
+        "NEXTAUTH_SECRET",
+        "VERCEL"
+      ],
+      "files": [
+        "server/edge-runtime-webpack.js",
+        "server/pages/admin/_middleware.js"
+      ],
+      "name": "pages/admin/_middleware",
+      "page": "/admin",
+      "regexp": "^/admin(?:(/.*)?)$",
+      "wasm": []
+    },
+    "/me": {
+      "env": [
+        "NEXTAUTH_URL",
+        "NEXTAUTH_SECRET",
+        "VERCEL"
+      ],
+      "files": [
+        "server/edge-runtime-webpack.js",
+        "server/pages/me/_middleware.js"
+      ],
+      "name": "pages/me/_middleware",
+      "page": "/me",
+      "regexp": "^/me(?:(/.*)?)$",
+      "wasm": []
+    }
+  },
+  "version": 1
+}
